@@ -17,3 +17,5 @@ User.methods.vaildPassword = function(password){
 };
 
 module.exports = mongoose.model('User', User);
+
+module.exports = User;

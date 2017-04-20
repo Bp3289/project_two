@@ -2,6 +2,8 @@
 
 const express = require('express');
 const app     = express();
+const file = require('file-system');
+var fs = require('fs');
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -10,7 +12,7 @@ const port    = process.env.PORT || 3000;
 // const fs = require("fs");
 // const path = require('path');
 
-const game = ('./game');
+var db = require('./models');	
 
 var content;
 
@@ -42,6 +44,6 @@ function processFile() {
 
 
 // start server
-app.listen(port, function() {
-  console.log('Server started on', port); 
+app.listen(process.env.PORT || 3000, function () {
+  console.log('Express server is running on http://localhost:3000/');
 });
