@@ -1,0 +1,37 @@
+{
+  "name": "game_api",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.15.1",
+    "cookie-parser": "~1.4.2",
+    "debug": "~2.2.0",
+    "ejs": "^2.4.2",
+    "express": "^4.13.4",
+    "express-helpers": "~1.3.2",
+    "file-system": "^2.2.2",
+    "jade": "~1.11.0",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.0.7",
+    "morgan": "~1.7.0"
+  },
+  "license": "ISC",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bp3289/project_two.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Bp3289/project_two/issues"
+  },
+  "homepage": "https://github.com/Bp3289/project_two#readme"
+}
