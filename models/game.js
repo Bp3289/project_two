@@ -5,7 +5,7 @@ const body = require('body-parser');
 
 
 
-function getGame(gameTitle){
+function Game(gameTitle){
 	request('https://www.igdb.com/games/' + gameTitle, function(error, response, body){
 		console.log('error:', error);
 		console.log('statusCode:', response && response.statusCode);
@@ -17,4 +17,4 @@ function getGame(gameTitle){
 	});
 }
 
-module.exports = getGame;
+module.exports = Game;

@@ -1,28 +1,44 @@
-'use strict'
 
-const express = require('express');
-const app     = express();
-const file = require('file-system');
-var fs = require('fs');
 
+var express      = require('express');
+var app          = express();
+var mongoose     = require('mongoose');
+var passport     = require('passport');
+var flash        = require('connect-flash');
+var morgan       = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser   = require('body-parser');
+var session      = require('express-session');
 var bodyParser = require('body-parser');
+var fs = require("fs");
+var path = require('path');
+
+mongoose.connect('mongodb://localhost/game-app');
+
+app.use(morgan('dev'));
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const port    = process.env.PORT || 3000;
-// const fs = require("fs");
-// const path = require('path');
+app.set('views', __dirname);
+app.engine('ejs', require('ejs').renderFile);
+app.set('view engine', 'ejs');
+
+app.use(express.static(__dirname + '/public'));
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+require('./config/passport')(passport);
 
 var db = require('./models');	
 
 var content;
 
 
-app.set('views', __dirname);
-app.engine('ejs', require('ejs').renderFile);
-app.set('view engine', 'ejs');
 
 
-fs.readFile('./game', "utf-8", function (err, data) {
+fs.readFile('./models', "utf-8", function (err, data) {
    if (err) {
       throw err;
    }
