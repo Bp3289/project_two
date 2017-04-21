@@ -38,7 +38,7 @@ app.use(function (req, res, next) {
 var routes = require('./config/routes');
 app.use(routes);
 
-app.get('/', function homepage (req, res){
+app.get('/home', function homepage (req, res){
 	res.sendFile(__dirname + '/views/index.html');
 });
 
