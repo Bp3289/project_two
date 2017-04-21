@@ -8,7 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
-mongoose.connect('mongodb://localhost/local-authentication-with-passport'); 
+// mongoose.connect('mongodb://localhost/game-app'); 
 
 var db = require('./models');
 
@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
 
-app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' })); 
+app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS',resave: true, saveUninitialized: true })); 
 app.use(passport.initialize());
 app.use(passport.session()); 
 app.use(flash()); 
