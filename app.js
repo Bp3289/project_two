@@ -1,5 +1,3 @@
-
-
 var express      = require('express');
 var app          = express();
 var mongoose     = require('mongoose');
@@ -9,29 +7,29 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
-var bodyParser = require('body-parser');
-var fs = require("fs");
-var path = require('path');
 
-mongoose.connect('mongodb://localhost/game-app');
+mongoose.connect('mongodb://localhost/local-authentication-with-passport'); 
 
-app.use(morgan('dev'));
+app.use(morgan('dev')); 
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
-app.set('views', __dirname);
+app.set('views', './views');
 app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
 
+app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' , cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
+app.use(passport.session()); 
+app.use(flash()); 
 
 require('./config/passport')(passport);
 
-app.use(function (req, res, next){
+app.use(function (req, res, next) {
 	res.locals.currentUser = req.user;
 	next();
 });
@@ -39,35 +37,4 @@ app.use(function (req, res, next){
 var routes = require('./config/routes');
 app.use(routes);
 
-var db = require('./models');	
-
-var content;
-
-
-
-
-fs.readFile('./models', "utf-8", function (err, data) {
-   if (err) {
-      throw err;
-   }
-
-   content = data.toString();
-
-   console.log(content);
-   processFile();
-});
-
-function processFile() {
-	console.log(content);
-}
-
-
-// app.get('/', function(req, res) {
-//   res.send("You're Home!");
-// });
-
-
-// start server
-app.listen(process.env.PORT || 3000, function () {
-  console.log('Express server is running on http://localhost:3000/');
-});
+app.listen(3000);

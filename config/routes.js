@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
+// Parses information from POST
 var bodyParser = require('body-parser');
+// Used to manipulate POST methods
 var methodOverride = require('method-override');
-var passport = require('passport');
+var passport = require("passport");
 var usersController = require('../controllers/users');
 var staticsController = require('../controllers/statics');
 
@@ -12,18 +14,21 @@ function authenticatedUser(req, res, next) {
 	res.redirect('/');
 }
 
+router.route("/secret")
+.get(authenticatedUser, usersController.secret);
+
 router.route('/')
-.get(staticsController.home);
+  .get(staticsController.home);
 
 router.route('/signup')
-.get(usersController.getSignup)
-.post(usersController.postSignup);
+  .get(usersController.getSignup)
+  .post(usersController.postSignup);
 
 router.route('/login')
-.get(usersController.getLogin)
-.post(usersController.postLogin);
+  .get(usersController.getLogin)
+  .post(usersController.postLogin);
 
-router.router('/logout')
-.get(usersController.getLogout);
+router.route("/logout")
+  .get(usersController.getLogout);
 
-module.exports = router;
+module.exports = router

@@ -1,41 +1,52 @@
-var passport = require('passport');
+var passport = require("passport");
 
-//Get signup
+// GET /signup
 function getSignup(request, response, next) {
 	response.render('signup.ejs', {message: request.flash('signupMessage')});
 }
-// Post /signup
+
+// POST /signup
 function postSignup(request, response, next) {
 	var signupStrategy = passport.authenticate('local-signup', {
-		successRedirect: '/',
-		failureRedirect: '/sigunup',
+		successRedirect:'/',
+		failureRedirect: '/signup',
 		failureFlash: true
 	});
 	return signupStrategy(request, response, next);
 }
-// Get /login
-function getLogin(request, response, next) {
+
+// GET /login
+function getLogin(request, response, next) { 
 	response.render('login.ejs', { message: request.flash('loginMessage')});
+
 }
-// Post /login
+
+// POST /login 
 function postLogin(request, response, next) {
-	var loginStrategy = passport.authenticate('local-login', {
+	var loginStrategy = passport.authenticate('local-loggins', {
 		successRedirect: '/',
 		failureRedirect: '/login',
 		failureFlash: true
 	});
 	return loginStrategy(request, response, next);
 }
-// Get /logout
+
+// GET /logout
 function getLogout(request, response, next) {
 	request.logout();
 	response.redirect('/');
 }
 
-module.export = {
-	getLogin: getLogin,
-	postLogin: postLogin,
-	getSignup: getSignup,
-	postSignup: postSignup,
-	getLogout: getLogout
+// Restricted page
+function secret(request, response){
+	response.json("HEYYYYYY");
+}
+
+module.exports = {
+  getLogin: getLogin,
+  postLogin: postLogin ,
+  getSignup: getSignup,
+  postSignup: postSignup,
+  getLogout: getLogout,
+  secret: secret
 };
