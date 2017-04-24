@@ -7,6 +7,8 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
+var igdb = require('igdb-api-node');
+
 
 // mongoose.connect('mongodb://localhost/game-app'); 
 
@@ -16,6 +18,7 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
+
 
 app.set('views', './views');
 app.engine('ejs', require('ejs').renderFile);
@@ -38,11 +41,26 @@ app.use(function (req, res, next) {
 var routes = require('./config/routes');
 app.use(routes);
 
-app.get('/home', function homepage (req, res){
-	res.sendFile(__dirname + '/views/index.html');
+app.get('/api/games', function (req, res) {
+  db.Game.find({}, function (err, games) {
+      if (err) { return console.log("index error: " + err); }
+      res.json(games);
+  });
 });
 
+app.get('/api/games/:id', function (req, res) {
+  db.Game.findOne({_id: req.params.id}, function(err, game) {
+    if (err) { return console.log("index error:" + err); }
+    res.json(game);
+  });
+});
 
+// app.get('/api/games/:id', function gameShow(req, res) {
+//   db.Game.findOne({_id: req.params.id}, function(err, game) {
+//     if (err) { return console.log("index error:" + err); }
+//     res.json(game);
+//   });
+// });
 // api.get('api', function api_index(req, res){
 // 	res.json({
 // 		message: "Welcome to Pioneer Gaming!",
@@ -53,6 +71,7 @@ app.get('/home', function homepage (req, res){
 // 		]
 // 	});
 // });
+
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Example app listening at http://localhost:3000/');

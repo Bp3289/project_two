@@ -63,6 +63,120 @@ var games_list = [
   },
   {
     "name": "The Legend of Zelda: The Minish Cap"
+  },
+  {
+    "name": "Super Mario World"
+  },
+  {
+    "name": "Super Mario Bros."
+  },
+  {
+    "name": "Super Mario Bros. 3"
+  },
+  {
+    "name": "Super Mario 64"
+  },
+  {
+    "name": "Super Mario All-Stars"
+  },
+  {
+    "name": "Super Mario Run"
+  },
+  {
+    "name": "Mario Golf: Toadstool Tour"
+  },
+  {
+    "name": "Super Mario Odyssey"
+  },
+  {
+    "name": "Mario & Luigi: Partners in Time"
+  },
+  {
+    "name": "Mario Super Sluggers"
+  },
+  {
+    "name": "Super Smash Bros. for Wii U"
+  },
+  {
+    "name": "Super Smash Bros. Melee"
+  },
+  {
+    "name": "Super Smash Bros. Brawl"
+  },
+  {
+    "name": "Super Smash Bros. for Wii U - duplicate"
+  },
+  {
+    "name": "Super Smash Bros."
+  },
+  {
+    "name": "Super Smash Bros for Nintendo 3DS"
+  },
+  {
+    "name": "Super Mario Bros."
+  },
+  {
+    "name": "Super Mario Bros. 3"
+  },
+  {
+    "name": "Super Mario World"
+  },
+  {
+    "name": "Smash + Grab"
+  },
+   {
+    "name": "The Witcher 3: Wild Hunt"
+  },
+  {
+    "name": "Gwent: The Witcher Card Game"
+  },
+  {
+    "name": "The Witcher"
+  },
+  {
+    "name": "The Witcher: Enhanced Edition"
+  },
+  {
+    "name": "The Witcher 2: Assassins of Kings"
+  },
+  {
+    "name": "The Witcher Battle Arena"
+  },
+  {
+    "name": "The Witcher 3: Wild Hunt - Game of the Year Edition"
+  },
+  {
+    "name": "The Witcher 3: The Wild Hunt - Hearts of Stone"
+  },
+  {
+    "name": "Gears of War 4"
+  },
+  {
+    "name": "Gears of War"
+  },
+  {
+    "name": "Gears of War 2"
+  },
+  {
+    "name": "Gears of War: Ultimate Edition"
+  },
+  {
+    "name": "Gears of War 3"
+  },
+  {
+    "name": "Gears of War: Judgment"
+  },
+  {
+    "name": "Gears of War 3: Fenix Rising"
+  },
+  {
+    "name": "Gears of War 2: Dark Corners"
+  },
+  {
+    "name": "Gears of War 3: RAAM’s Shadow"
+  },
+  {
+    "name": "God of War"
   }
 ];
 
@@ -80,6 +194,8 @@ var games_list = [
     }
     console.log('recreated all games');
     console.log("created", games.length, "games");
+
+    process.exit();
        
           });
         });

@@ -18,6 +18,7 @@
     "express-session": "^1.15.2",
     "file-system": "^2.2.2",
     "hbs": "^4.0.1",
+    "igdb-api-node": "^2.0.2",
     "jade": "~1.11.0",
     "method-override": "^2.3.6",
     "mongodb": "^2.2.26",
@@ -29,7 +30,8 @@
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
     "request": "^2.81.0",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "unirest": "^0.5.1"
   },
   "license": "ISC",
   "description": "",
