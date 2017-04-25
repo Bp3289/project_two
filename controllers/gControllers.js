@@ -62,5 +62,5 @@ module.exports = {
 	getOneGame: getOneGame,
 	postGame: postGame,
 	editOneGame: editOneGame,
-	deletedGame: deletedGame
+	deleteGame: deleteGame
 };
