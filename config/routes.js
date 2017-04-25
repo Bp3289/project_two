@@ -31,4 +31,7 @@ router.route('/login')
 router.route("/logout")
   .get(usersController.getLogout);
 
+  // router.route('/games')
+  // .get()
+
 module.exports = router;
