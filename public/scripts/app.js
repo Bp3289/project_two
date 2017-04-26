@@ -42,15 +42,27 @@ $(document).ready(function() {
     });
 
   }); //Submit button 
-$('#games').on('click', '.add-game', function(e) {
-    var id= $(this).parents('.game').data('game-id');
-    $('#gameModal').data('game-id', id);
-    $('#gameModal').modal();
+$('#games').on('click', '.delete-game', function(e) {
+  event.preventDefault();
+    var id = $('#games').val();
+    console.log(id);
+    $.ajax({
+      url:'api/games/'+id,
+      type:'DELETE'
+      
+
+    }).done(function(){
+      console.log("ID: "+id+"was deleted");
+      $('#games').val("");
+    });
   });
 
-  $('#saveGame').on('click', handleNewGameSubmit);
 
-});
+
+
+//   $('#saveGame').on('click', handleNewGameSubmit);
+
+// });
 
 $('#gameModal').modal();
 
@@ -151,16 +163,16 @@ function renderGame(game) {
   "              </div>" + // end of panel-body
 
   "              <div class='panel-footer'>" +
-  "                <button class='btn btn-primary add-song'>Add Game</button>" +
+  "                <button class='btn btn-primary delete-game'>Delete Game</button>" +
   "              </div>" +
 
   "            </div>" +
   "          </div>" +
-  "          <!-- end one album -->";
+  "          <!-- end one game -->";
  
   
   //grab #albums id and add albumHtml to it
   $('#games').prepend(gameHtml);
 
-}
+}});
 
