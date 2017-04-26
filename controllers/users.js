@@ -38,7 +38,7 @@ function getLogout(request, response, next) {
 }
 
 // Restricted page
-function secret(request, response){
+function secret(request, response, next){
 	response.json("HEYYYYYY");
 }
 

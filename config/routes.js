@@ -8,6 +8,7 @@ var passport = require("passport");
 var usersController = require('../controllers/users');
 var staticsController = require('../controllers/statics');
 var gameController = require('../controllers/gControllers');
+var request = require('request');
 /////////////////////
 function authenticatedUser(req, res, next) {
 	if (req.isAuthenticated()) return next();
@@ -32,10 +33,13 @@ router.route('/login')
 router.route("/logout")
   .get(usersController.getLogout);
 
-router.route('/games')
+
+
+router.route('/api/games')
 .get(gameController.getGames)
 .post(gameController.postGame);
-router.route('/games/:id')
+
+router.route('/api/games/:id')
 .get(gameController.getOneGame)
 .put(gameController.editOneGame)
 .delete(gameController.deleteGame);

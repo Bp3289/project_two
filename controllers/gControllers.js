@@ -2,23 +2,23 @@ var db = require('../models');
 
 
 //Get Index
-function getGames (req, res){
-	db.Game.find()
-	.exec(function (err, games){
-		if (err) { return console.log("index error:" + err); }
-		res.json(games);
-	});
+function getGames (req, res, next){
+	db.Game.find({}, function(err, games){
+      //has to be lowercase
+      res.json(games);
+    });
+    
 }
 
 //Get One
-function getOneGame (req, res) {
+function getOneGame (req, res, next) {
 	db.Game.findOne({_id: req.params.id}, function(err, game){
 		res.json(game);
 	});
 }
 
 //Post Game
-function postGame(req, res) {
+function postGame(req, res, next) {
 	var newGame = new db.Game({
 		name: req.body.name
 	});
@@ -32,7 +32,7 @@ function postGame(req, res) {
 }
 
 //PUT Game
-function editOneGame (req, res) {
+function editOneGame (req, res, next) {
 	var id = req.params.id;
 
 	db.Game.findOne({_id: id}, function(err, game){
@@ -47,7 +47,7 @@ function editOneGame (req, res) {
 }
 
 //Delete Game
-function deleteGame (req, res) {
+function deleteGame (req, res, next) {
 	var gameID = req.params.id;
 	db.Game.findOneAndRemove({_id: gameID}, function(err, deletedGame){
 		if (err) {

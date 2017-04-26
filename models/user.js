@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
+var Game = require('./game.js');
 
 var User = mongoose.Schema({
   local : {
     email        : String,
     password     : String,
-    
-  }
+  },
+  favoriteList: [Game.schema]
 });
 
 User.methods.encrypt =function(password){
