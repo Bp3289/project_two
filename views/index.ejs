@@ -139,21 +139,21 @@
     </section>
 
     <!-- begin songModal: this is not visible until you call .modal() on it -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="gameModal">
+    <div class="modal fade" tabindex="-1" role="dialog" id="reviewModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Create Game</h4>
+            <h4 class="modal-title">Review Game</h4>
           </div>
           <div class="modal-body">
             <fieldset class='form-horizontal'>
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="gameName">Game Name</label>
+              <label class="col-md-4 control-label" for="reviewName">Review</label>
               <div class="col-md-4">
-              <input id="gameName" name="gameName" type="text" placeholder="" class="form-control input-md" required="">
+              <input id="reviewName" name="reviewName" type="text" placeholder="" class="form-control input-md" required="">
 
               </div>
             </div>
@@ -173,7 +173,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveGame">Save changes</button>
+            <button type="button" class="btn btn-primary" id="saveReview">Save changes</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->

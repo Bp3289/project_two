@@ -3,10 +3,16 @@
 
 //when the doc loads run all these function
 $(document).ready(function() {
+
+  var eachGamesReviews = [];
+
+  var reviewsVar = "";
+
   console.log('app.js is running');
   $.get('/api/games', function(games){
-    games.forEach(function(game){
-      renderGame(game);
+    games.forEach(function(eachGame, index){
+      renderGame(eachGame);
+       buildReviewsHtml(eachGame.reviews);
     });
     
   });
@@ -42,17 +48,17 @@ $(document).ready(function() {
     });
 
   }); //Submit button 
-$('#games').on('click', '.update-game', function(e) {
+$('#games').on('click', '.review-game', function(e) {
     var id= $(this).parents('.game').data('game-id');
-    $('#gameModal').data('game-id', id);
-    $('#gameModal').modal();
+    $('#reviewModal').data('game-id', id);
+    $('#reviewModal').modal();
   });
 
-  $('#saveGame').on('click', handleNewGameSubmit);
+  $('#saveReview').on('click', handleNewReviewSubmit);
 
 });
 
-$('#gameModal').modal();
+$('#reviewModal').modal();
 
 
 
@@ -62,21 +68,21 @@ $('#gameModal').modal();
 
 
 
-// adds new game
-function handleNewGameSubmit(e) {
-  var gameId = $('#gameModal').data('game-id');
-  var gameName = $('#gameName').val();
+// adds new review
+function handleNewReviewSubmit(e) {
+  var gameId = $('#reviewModal').data('game-id');
+  var reviewName = $('#reviewName').val();
  
 
-  var updateGame = {
-    name: gameName,
+  var updateReview = {
+    name: reviewName,
   };
 
-  var stringForPost = '/api/games/' + gameId + '/games';
+  var stringForPost = '/api/games/' + gameId + '/reviews';
   
 
-  $.post(stringForPost, updateGame)
-    .success(function(game) {
+  $.post(stringForPost, updateReview)
+    .success(function(review) {
       // re-get full album and render on page
       $.get('/api/games/' + gameId).success(function(game) {
         //remove the old album so there arent 2 on the page
@@ -87,9 +93,9 @@ function handleNewGameSubmit(e) {
 
 //this clears the songname text input with an empty string
       
-      $('#gameName').val('');
+      $('#reviewName').val('');
 
-      $('#gameModal').modal('hide');
+      $('#reviewModal').modal('hide');
 
     });
 }
@@ -101,7 +107,7 @@ console.log("games passed in: ");
 console.log(games);
     reviews.forEach(function(review) {
 
-      eachReview = eachReview + " " + review.name + " -- ";
+      eachReview = eachReview + review.name + " -- ";
     });
     var reviewsHtml  =
      "<li class='list-group-item'>" +
@@ -154,7 +160,7 @@ function renderGame(game) {
   "              </div>" + // end of panel-body
 
   "              <div class='panel-footer'>" +
-  "                <button class='btn btn-primary update-game'>Update Game Reviews</button>" +
+  "                <button class='btn btn-primary review-game'>Update Game Reviews</button>" +
   "              </div>" +
 
   "            </div>" +

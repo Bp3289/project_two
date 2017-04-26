@@ -48,10 +48,11 @@ function editOneGame (req, res, next) {
 
 function reviewCreate(req, res) {
   //go to db find one album with id from url string {_id: req.params.albumId} 
-  db.Game.findOne({_id: req.params.gameId}, function(err, game) {
+  db.Game.findOne({_id: req.params.id}, function(err, game) {
     if (err) { console.log('error game+review post route:' + err); }
 /// model for making new song
     var review = new db.Review(req.body);
+    console.log(game);
     /// push the song into the album's songs array
     game.reviews.push(review);
     //save the album into the db
