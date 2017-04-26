@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
-  // Author = require('./author');
+ var Review = require('./review.js');
 
 // var CharacterSchema = new Schema({
 //   name: String
@@ -8,7 +8,8 @@ var mongoose = require('mongoose'),
 
 
 var GameSchema = new Schema({
-   name: String
+   name: String,
+  reviews: [Review.schema]
 });
 
 

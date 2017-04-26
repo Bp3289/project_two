@@ -48,7 +48,7 @@ $('#games').on('click', '.update-game', function(e) {
     $('#gameModal').modal();
   });
 
-  $('#saveSong').on('click', handleNewGameSubmit);
+  $('#saveGame').on('click', handleNewGameSubmit);
 
 });
 
@@ -95,20 +95,20 @@ function handleNewGameSubmit(e) {
 }
 
 
-  var buildGamesHtml = function(games) {
-    var eachGame = " -- ";
+  var buildReviewsHtml = function(reviews) {
+    var eachReview = " -- ";
 console.log("games passed in: ");
 console.log(games);
-    // games.forEach(function(game) {
+    reviews.forEach(function(review) {
 
-    //   eachGame = eachGame + " " + game.name + " -- ";
-    // });
-    // var gamesHtml  =
-    //  "<li class='list-group-item'>" +
-    //  "<h4 class='inline-header'>Games:</h4>" +
-    //  "<span>" + eachGame + "</span>" +
-    //  "</li>";
-    //return gamesHtml;
+      eachReview = eachReview + " " + review.name + " -- ";
+    });
+    var reviewsHtml  =
+     "<li class='list-group-item'>" +
+     "<h4 class='inline-header'>Reviews:</h4>" +
+     "<span>" + eachReview + "</span>" +
+     "</li>";
+    return reviewsHtml;
 };
 
 // this function takes a single game and renders it to the page
@@ -143,7 +143,7 @@ function renderGame(game) {
   // "                        <span class='album-name'>" + album.releaseDate + "</span>" +
   // "                      </li>" +
 
-                                buildGamesHtml(game.name) +
+                                buildReviewsHtml(game.reviews) +
 
 
   "                    </ul>" +

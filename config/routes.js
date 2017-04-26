@@ -39,9 +39,12 @@ router.route('/api/games')
 .get(gameController.getGames)
 .post(gameController.postGame);
 
-router.route('/api/games/:id')
+router.route('/api/games/:gameId')
 .get(gameController.getOneGame)
 .put(gameController.editOneGame)
 .delete(gameController.deleteGame);
+
+router.route('api/games/:gameId/reviews')
+.post(gameController.reviewCreate);
 
 module.exports = router;

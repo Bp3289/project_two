@@ -3,6 +3,11 @@
 
 var db = require('./models');
 
+var reviews = [];
+
+reviews.push({ name: 'Good'
+});
+
 var games_list = [
     {
     "name": "Halo 5: Guardians"
@@ -181,7 +186,16 @@ var games_list = [
 ];
 
 
+games_list.forEach(
+  function(eachGame, index){
+  eachGame.reviews = reviews;
+  
 
+});
+var i;
+for (i = 0; i < games_list.length; ++i) {
+      console.log(games_list[i].reviews);
+    }
 
 
 

@@ -9,4 +9,6 @@ mongoose.connect( process.env.MONGODB_URI ||
 
 module.exports.Game = require('./game.js');
 module.exports.User = require('./user.js');
+module.exports.Review = require('./review.js');
+
 
