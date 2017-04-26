@@ -163,6 +163,13 @@ function renderGame(game) {
   "                <button class='btn btn-primary review-game'>Update Game Reviews</button>" +
   "              </div>" +
 
+
+  "              <div class='panel-footer'>" +
+  "                <button class='btn btn-primary delete-game'>Delete Game</button>" +
+  "              </div>" +
+          
+
+
   "            </div>" +
   "          </div>" +
   "          <!-- end one game -->";
@@ -171,5 +178,22 @@ function renderGame(game) {
   //grab #albums id and add albumHtml to it
   $('#games').prepend(gameHtml);
 
+
 }
+
+$('#delButton').on('click', function(){
+    event.preventDefault();
+    var urlID = $('#delRoute').val();
+    console.log(urlID);
+    $.ajax({
+      url:'api/agmes/'+urlID,
+      type:'DELETE'
+      
+
+    }).done(function(){
+      console.log("ID: "+urlID+"was deleted");
+      getALL();
+      $('#delRoute').val("");
+    });
+  });
 
