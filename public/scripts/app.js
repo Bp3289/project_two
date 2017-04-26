@@ -42,29 +42,20 @@ $(document).ready(function() {
     });
 
   }); //Submit button 
-$('#games').on('click', '.delete-game', function(e) {
-  event.preventDefault();
-    var id = $('#games').val();
-    console.log(id);
-    $.ajax({
-      url:'api/games/'+id,
-      type:'DELETE'
-      
-
-    }).done(function(){
-      console.log("ID: "+id+"was deleted");
-      $('#games').val("");
-    });
+$('#games').on('click', '.update-game', function(e) {
+    var id= $(this).parents('.game').data('game-id');
+    $('#gameModal').data('game-id', id);
+    $('#gameModal').modal();
   });
 
+  $('#saveSong').on('click', handleNewGameSubmit);
 
-
-
-//   $('#saveGame').on('click', handleNewGameSubmit);
-
-// });
+});
 
 $('#gameModal').modal();
+
+
+
 
 
 
@@ -108,15 +99,15 @@ function handleNewGameSubmit(e) {
     var eachGame = " -- ";
 console.log("games passed in: ");
 console.log(games);
-    /*games.forEach(function(game) {
+    // games.forEach(function(game) {
 
-      eachGame = eachGame + " " + game.name + " -- ";
-    });
-    var gamesHtml  =
-     "<li class='list-group-item'>" +
-     "<h4 class='inline-header'>Games:</h4>" +
-     "<span>" + eachGame + "</span>" +
-     "</li>";*/
+    //   eachGame = eachGame + " " + game.name + " -- ";
+    // });
+    // var gamesHtml  =
+    //  "<li class='list-group-item'>" +
+    //  "<h4 class='inline-header'>Games:</h4>" +
+    //  "<span>" + eachGame + "</span>" +
+    //  "</li>";
     //return gamesHtml;
 };
 
@@ -163,7 +154,7 @@ function renderGame(game) {
   "              </div>" + // end of panel-body
 
   "              <div class='panel-footer'>" +
-  "                <button class='btn btn-primary delete-game'>Delete Game</button>" +
+  "                <button class='btn btn-primary update-game'>Update Game Reviews</button>" +
   "              </div>" +
 
   "            </div>" +
@@ -174,5 +165,5 @@ function renderGame(game) {
   //grab #albums id and add albumHtml to it
   $('#games').prepend(gameHtml);
 
-}});
+}
 
