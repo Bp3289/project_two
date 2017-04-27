@@ -2,7 +2,7 @@
   "name": "game_api",
   "version": "0.0.0",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "bcrypt": "^1.0.2",
@@ -36,7 +36,7 @@
   },
   "license": "ISC",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "directories": {
     "test": "test"
   },
