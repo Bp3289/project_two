@@ -68,7 +68,7 @@ function reviewCreate(req, res) {
 //Delete Game
 function deleteGame (req, res, next) {
 	var gameID = req.params.id;
-	db.Game.findOneAndRemove({_id: name}, function(err, deletedGame){
+	db.Game.findOneAndRemove({_id: gameID}, function(err, deletedGame){
 		if (err) {
 			return console.log("delete error:" + err);
 		}
