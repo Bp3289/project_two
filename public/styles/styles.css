@@ -1,3 +1,7 @@
+body {
+	background-color: black;
+}
+
 .jumbotron {
 	background-color: black;
 }
@@ -5,4 +9,20 @@
 .container {
 	font-family: 'Bungee Inline', cursive;
 	color:	#32CD32;
+}
+
+.panel-body {
+	background-color: black;
+}
+
+.panel-footer {
+	background-color: black;
+}
+
+.review-game {
+	background-color: #32CD32;
+}
+
+.delete-game {
+	background-color: #32CD32;
 }
