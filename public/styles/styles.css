@@ -26,3 +26,36 @@ body {
 .delete-game {
 	background-color: #32CD32;
 }
+
+.navbar-default {
+	background-color: black;
+}
+
+.navbar-brand {
+	background-color: #32CD32;
+}
+
+.navbar-nav {
+	color: #32CD32;
+}
+
+.add {
+	color: #32CD32;
+}
+
+
+a {
+	color: #32CD32;
+}
+
+.list-group-item {
+	background-color: black;
+}
+
+#singlebutton {
+	background-color: #32CD32;
+}
+
+#saveReview {
+	background-color: #32CD32;
+}
