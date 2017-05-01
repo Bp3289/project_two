@@ -1,7 +1,8 @@
 .jumbotron {
-	font-family: 'Bungee Inline', cursive;
+	background-color: black;
 }
 
-h1 {
+.container {
 	font-family: 'Bungee Inline', cursive;
+	color:	#32CD32;
 }
