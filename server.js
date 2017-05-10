@@ -12,8 +12,9 @@ var session      = require('express-session');
 
 // mongoose.connect('mongodb://localhost/game-app'); 
 
+//require models
 var db = require('./models');
-
+// use morgan, cookieparser, and bodyParser
 app.use(morgan('dev')); 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true}));
