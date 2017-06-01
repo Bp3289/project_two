@@ -2,9 +2,6 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
  var Review = require('./review.js');
 
-// var CharacterSchema = new Schema({
-//   name: String
-// });
 
 
 var GameSchema = new Schema({

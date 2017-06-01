@@ -20,6 +20,7 @@ The goal of this website is to provide information of over 11,000 games to anyon
 - Cookie Parser
 - Body Parser 
 
+
 ## Approach 
 
 This app is meant to be the end all to gamers needs. The app uses an api pulled from Mashape and returns all sorts of info. The user should be able to see game info, game reviews adn current prices of the game.

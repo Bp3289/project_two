@@ -56,15 +56,7 @@ $(document).ready(function() {
     $(this).parents('.game').remove();
 
     
-
-    //remove the game element on the page
-    /*
-    var gameId = $(this).val();
-    var gameHate = $(this).parents('.game');
-    console.log(gameHate +"will be removed");
-    //------------------------
-    //modify this code to delete the correct
-    */
+      //Delete Route
     $.ajax({
       url: 'http://localhost:3000/api/games/'+ id,
       type: 'DELETE'
@@ -73,9 +65,6 @@ $(document).ready(function() {
 
     .done(function(){
         $.get('/api/games', function(res){
-          /*res.forEach(function(thisGame){
-            renderGame(thisGame);
-          });*/
         });
     });
     //------------------------
@@ -102,15 +91,15 @@ function handleNewReviewSubmit(e) {
 
   $.post(stringForPost, updateReview)
     .success(function(review) {
-      // re-get full album and render on page
+      // re-get full game and render on page
       $.get('/api/games/' + gameId).success(function(game) {
-        //remove the old album so there arent 2 on the page
+        //remove the old game so there arent 2 on the page
         $('[data-game-id='+ gameId + ']').remove();
         renderGame(game);
       });
 
 
-      //this clears the songname text input with an empty string
+      //this clears the reviewname text input with an empty string
       
       $('#reviewName').val('');
 
@@ -120,10 +109,9 @@ function handleNewReviewSubmit(e) {
 }
 
 
+//Function that builds the review window
 var buildReviewsHtml = function(reviews) {
   var eachReview = " -- ";
-  //console.log("games passed in: ");
-  //console.log(games);
   reviews.forEach(function(review) {
 
     eachReview = eachReview + review.name + " -- ";
@@ -139,7 +127,6 @@ var buildReviewsHtml = function(reviews) {
 // this function takes a single game and renders it to the page
 function renderGame(game) {
 
-  //console.log('rendering game:', game);
  
   var gameHtml =
   "        <!-- one game -->" +
@@ -157,15 +144,7 @@ function renderGame(game) {
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Game Name:</h4>" +
   "                        <span class='game-name'>" + game.name + "</span>" +
-  "                      </li>" +
-  // "                      <li class='list-group-item'>" +
-  // "                        <h4 class='inline-header'>Artist Name:</h4>" +
-  // "                        <span class='artist-name'>" + album.artistName + "</span>" +
-  // "                      </li>" +
-  // "                      <li class='list-group-item'>" +
-  // "                        <h4 class='inline-header'>Released date:</h4>" +
-  // "                        <span class='album-name'>" + album.releaseDate + "</span>" +
-  // "                      </li>" +
+  "                      </li>" +                   
 
                                 buildReviewsHtml(game.reviews) +
 
@@ -192,7 +171,7 @@ function renderGame(game) {
 
  
   
-  //grab #albums id and add albumHtml to it
+  //grab #games id and add gameHtml to it
   $('#games').prepend(gameHtml);
 
 

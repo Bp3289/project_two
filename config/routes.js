@@ -15,7 +15,7 @@ function authenticatedUser(req, res, next) {
 
 	res.redirect('/');
 }
-//////////////////////
+//Routes for login
 router.route("/secret")
 .get(authenticatedUser, usersController.secret);
 
@@ -34,7 +34,7 @@ router.route("/logout")
   .get(usersController.getLogout);
 
 
-
+//Routes for games
 router.route('/api/games')
 .get(gameController.getGames)
 .post(gameController.postGame);

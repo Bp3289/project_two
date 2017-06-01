@@ -4,7 +4,6 @@ var db = require('../models');
 //Get Index
 function getGames (req, res, next){
 	db.Game.find({}, function(err, games){
-      //has to be lowercase
       res.json(games);
     });
     
@@ -47,15 +46,15 @@ function editOneGame (req, res, next) {
 }
 
 function reviewCreate(req, res) {
-  //go to db find one album with id from url string {_id: req.params.albumId} 
+  //go to db find one game with id from url string {_id: req.params.albumId} 
   db.Game.findOne({_id: req.params.id}, function(err, game) {
     if (err) { console.log('error game+review post route:' + err); }
-/// model for making new song
+/// model for making new review
     var review = new db.Review(req.body);
     console.log(game);
-    /// push the song into the album's songs array
+    /// push the song into the game's review array
     game.reviews.push(review);
-    //save the album into the db
+    //save the game into the db
     game.save(function(err, savedGame) {
       if (err) { console.log('error', err); }
       console.log('game with new review saved:', savedGame);
@@ -76,6 +75,7 @@ function deleteGame (req, res, next) {
 	});
 }
 
+//Export all modules
 module.exports = {
 	getGames: getGames,
 	getOneGame: getOneGame,

@@ -42,6 +42,7 @@ function secret(request, response, next){
 	response.json("HEYYYYYY");
 }
 
+//Export all modules
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin ,
