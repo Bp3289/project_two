@@ -25,7 +25,7 @@ Another goal this for this app is to build an interactive website community of g
 
 ## WireFrame
 
-<img src="img_2186.jpg">
+<img src="pic.jpg">
 
 
 ## Unsolved Problems
