@@ -31,6 +31,10 @@ Another goal this for this app is to build an interactive website community of g
 
 <img src="pic.jpg">
 
+## Mockview
+
+<img src="Mockup">
+
 
 ## Unsolved Problems
 
