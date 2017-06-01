@@ -23,6 +23,10 @@ This app is meant to be the end all to gamers needs. The app uses an api pulled 
 
 Another goal this for this app is to build an interactive website community of gamers. Gamers can share reviews and videos of gameplay.
 
+## WireFrame
+
+<img src="img_2186.jpg">
+
 
 ## Unsolved Problems
 
