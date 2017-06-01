@@ -33,7 +33,7 @@ Another goal this for this app is to build an interactive website community of g
 
 ## Mockview
 
-<img src="Mockup.png">
+<img src="home.png">
 
 
 ## Unsolved Problems
